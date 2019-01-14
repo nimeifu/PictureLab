@@ -97,7 +97,16 @@ public class Picture extends SimplePicture
       }
     }
   }
-  
+
+  public void KeepOnlyBlue() {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels) {
+      for (Pixel pixelObj : rowArray) {
+        pixelObj.setRed(0);
+        pixelObj.setGreen(0);
+      }
+    }
+  }
   /** Method that mirrors the picture around a 
     * vertical mirror in the center of the picture
     * from left to right */
@@ -216,7 +225,68 @@ public class Picture extends SimplePicture
       }
     }
   }
-  
+  public void negate()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setBlue(255-pixelObj.getBlue());
+        pixelObj.setGreen(255-pixelObj.getGreen());
+        pixelObj.setRed(255-pixelObj.getRed());
+      }
+    }
+  }
+
+  public void grayScale()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray) {
+        int avg = (pixelObj.getRed() + pixelObj.getGreen() + pixelObj.getBlue()) / 3;
+        pixelObj.setRed(avg);
+        pixelObj.setGreen(avg);
+        pixelObj.setBlue(avg);
+      }
+    }
+  }
+
+  public void zeroGreen()
+  {
+  Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray) {
+        pixelObj.setGreen(0);
+      }
+    }
+  }
+  public void KeepOnlyGreen() {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels) {
+      for (Pixel pixelObj : rowArray) {
+        pixelObj.setRed(0);
+        pixelObj.setBlue(0);
+      }
+    }
+  }
+
+ /* public void fixUnderwater()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+
+    for (Pixel[] rowArray : pixels) {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setRed();
+        pixelObj.setBlue();
+        pixelObj.setGreen();
+      }
+    }
+  }
+  */
   
   /* Main method for testing - each class in Java can have a main 
    * method 
