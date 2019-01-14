@@ -273,20 +273,24 @@ public class Picture extends SimplePicture
     }
   }
 
- /* public void fixUnderwater()
+  public void fixUnderwater()
   {
     Pixel[][] pixels = this.getPixels2D();
-
     for (Pixel[] rowArray : pixels) {
-      for (Pixel pixelObj : rowArray)
-      {
-        pixelObj.setRed();
-        pixelObj.setBlue();
-        pixelObj.setGreen();
+      for (Pixel pixelObj : rowArray) {
+        if(pixelObj.getGreen()>pixelObj.getBlue() && pixelObj.getGreen()>pixelObj.getRed())
+        {
+          pixelObj.setColor(Color.WHITE);
+        }
+        
       }
     }
+
+
+
   }
-  */
+
+
   
   /* Main method for testing - each class in Java can have a main 
    * method 

@@ -63,14 +63,14 @@ public class PictureTester
 
   }
 
- /* public static void testfixUnderwater()
+  public static void testFixUnderwater()
   {
     Picture beach=new Picture("water.jpg");
     beach.explore();
     beach.fixUnderwater();
     beach.explore();
   }
-  */
+
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
@@ -117,9 +117,9 @@ public class PictureTester
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
     //testzeroGreen();
-    testnegate();
+    //testnegate();
     //testgrayscale();
-    //testFixUnderwater();
+    testFixUnderwater();
     //testMirrorVertical();
     //testMirrorTemple();
     //testMirrorArms();
