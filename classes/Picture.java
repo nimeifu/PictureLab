@@ -280,9 +280,8 @@ public class Picture extends SimplePicture
       for (Pixel pixelObj : rowArray) {
         if(pixelObj.getGreen()>pixelObj.getBlue() && pixelObj.getGreen()>pixelObj.getRed())
         {
-          pixelObj.setColor(Color.WHITE);
+          pixelObj.setColor(Color.GRAY);
         }
-        
       }
     }
 
