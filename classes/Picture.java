@@ -273,21 +273,72 @@ public class Picture extends SimplePicture
     }
   }
 
-  public void fixUnderwater()
-  {
+  public void fixUnderwater() {
     Pixel[][] pixels = this.getPixels2D();
     for (Pixel[] rowArray : pixels) {
       for (Pixel pixelObj : rowArray) {
-        if(pixelObj.getGreen()>pixelObj.getBlue() && pixelObj.getGreen()>pixelObj.getRed())
-        {
-          pixelObj.setColor(Color.GRAY);
+        if (pixelObj.getGreen() > pixelObj.getBlue() && pixelObj.getGreen() > pixelObj.getRed()) {
+          pixelObj.setColor(Color.lightGray);
         }
       }
     }
-
-
-
   }
+
+
+    public void mirrorVerticalRightToLeft()
+    {
+      Pixel[][] pixels = this.getPixels2D();
+      Pixel leftPixel = null;
+      Pixel rightPixel = null;
+      int width = pixels[0].length;
+      for (int row = 0; row < pixels.length; row++) {
+        for (int col = 0; col < width / 2; col++) {
+          rightPixel = pixels[row][col];
+          leftPixel = pixels[row][width - 1 - col];
+          rightPixel.setColor(leftPixel.getColor());
+        }
+      }
+    }
+/*
+    public void mirrorHorizontal()
+    {
+      Pixel[][] pixels = this.getPixels2D();
+      Pixel topPixel = null;
+      Pixel botPixel = null;
+      int height = pixels[1].length;
+      for (int col = 0; col < pixels.length; col++)
+      {
+        for (int row = 0; row < height / 2; row++)
+        {
+          topPixel = pixels[col][row];
+          botPixel = pixels[col][height-1-row];
+         botPixel.setColor(topPixel.getColor());
+        }
+      }
+
+    }
+
+    public void mirrorHorizontalBotToTop()
+    {
+      Pixel[][] pixels = this.getPixels2D();
+      Pixel leftPixel = null;
+      Pixel rightPixel = null;
+      int width = pixels[0].length;
+      for (int row = 0; row < pixels.length; row++)
+      {
+        for (int col = 0; col < width / 2; col++)
+        {
+          leftPixel = pixels[row][col];
+          rightPixel = pixels[row][width-1-col];
+          rightPixel.setColor(leftPixel.getColor());
+        }
+      }
+    }
+*/
+
+
+
+
 
 
   
