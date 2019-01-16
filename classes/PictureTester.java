@@ -9,6 +9,22 @@
 public class PictureTester
 {
   /** Method to test zeroBlue */
+  public static void testMirrorGull()
+  {
+    Picture seagull = new Picture ("seagull.jpg");
+    seagull.explore();
+    seagull.mirrorGull();
+    seagull.explore();
+  }
+
+  public static void testMirrorSnowman()
+  {
+    Picture snowman = new Picture ("snowman.jpg");
+    snowman.explore();
+    snowman.mirrorSnowman();
+    snowman.explore();
+  }
+
   public static void testZeroBlue()
   {
     Picture beach = new Picture("beach.jpg");
@@ -83,7 +99,7 @@ public class PictureTester
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
-    Picture temple = new Picture("beach.jpg");
+    Picture temple = new Picture("temple.jpg");
     temple.explore();
     temple.mirrorTemple();
     temple.explore();
@@ -103,7 +119,7 @@ public class PictureTester
     canvas.createCollage();
     canvas.explore();
   }
-  
+
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
@@ -112,7 +128,7 @@ public class PictureTester
     swan.explore();
   }
 
- /* public static void testMirroHorizontal()
+  public static void testMirroHorizontal()
   {
     Picture wall= new Picture("wall.jpg");
     wall.explore();
@@ -122,12 +138,20 @@ public class PictureTester
 
   public static void testMirrorHorizontalBotToTop()
   {
-    Picture robot=new Picture("robot.jpg");
+    Picture robot=new Picture("wall.jpg");
     robot.explore();
     robot.mirrorHorizontalBotToTop();
     robot.explore();
   }
-  */
+
+  public static void testMirrorDiagonal()
+  {
+    Picture beach=new Picture("beach.jpg");
+    beach.explore();
+    beach.mirrorDiagonal();
+    beach.explore();
+  }
+
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -135,6 +159,8 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
+    testMirrorGull();
+    //testMirrorSnowman();
     //testZeroBlue();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
@@ -146,7 +172,7 @@ public class PictureTester
     //testMirrorVertical();
     //testMirrorVerticalRightToLeft();
     //testMirrorHorizontalBotToTop();
-    // testMirroHorizontal();
+     //testMirroHorizontal();
     //testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();

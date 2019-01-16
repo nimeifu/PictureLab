@@ -144,13 +144,31 @@ public class Picture extends SimplePicture
       {
         
         leftPixel = pixels[row][col];      
-        rightPixel = pixels[row]                       
-                         [mirrorPoint - col + mirrorPoint];
+        rightPixel = pixels[row][mirrorPoint - col + mirrorPoint];
         rightPixel.setColor(leftPixel.getColor());
+        count++;
+      }
+    }
+    System.out.print(count);
+  }
+
+  public void mirrorGull()
+  {
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    Pixel[][] pixels = this.getPixels2D();
+
+    for (int row = 220; row < 325; row++)
+    {
+      for (int col = 220; col < 360; col++)
+      {
+        rightPixel = pixels [row][col];
+        leftPixel = pixels [row][220 - col + 220];
+        leftPixel.setColor(rightPixel.getColor());
       }
     }
   }
-  
+
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the
     * current picture
@@ -299,42 +317,77 @@ public class Picture extends SimplePicture
         }
       }
     }
-/*
+
     public void mirrorHorizontal()
     {
       Pixel[][] pixels = this.getPixels2D();
       Pixel topPixel = null;
       Pixel botPixel = null;
-      int height = pixels[1].length;
-      for (int col = 0; col < pixels.length; col++)
+      int height = pixels.length;
+
+      for (int row = 0; row< height/2;row++)
       {
-        for (int row = 0; row < height / 2; row++)
+        for (int col = 0; col < pixels[0].length; col++)
         {
-          topPixel = pixels[col][row];
-          botPixel = pixels[col][height-1-row];
-         botPixel.setColor(topPixel.getColor());
+          topPixel = pixels[row][col];
+          botPixel = pixels[height-1-row][col];
+          botPixel.setColor(topPixel.getColor());
         }
       }
 
+    }
+
+    public void mirrorSnowman()
+    {
+      Pixel[][] pixels = this.getPixels2D();
+      Pixel topPixel = null;
+      Pixel botPixel = null;
+
+      for (int row = 195; row< 222;row++)
+      {
+        for (int col = 100; col < 300; col++)
+        {
+          botPixel = pixels[row][col];
+          topPixel = pixels[195 - row + 195][col];
+          botPixel.setColor(topPixel.getColor());
+        }
+      }
     }
 
     public void mirrorHorizontalBotToTop()
     {
       Pixel[][] pixels = this.getPixels2D();
-      Pixel leftPixel = null;
-      Pixel rightPixel = null;
-      int width = pixels[0].length;
-      for (int row = 0; row < pixels.length; row++)
+      Pixel topPixel = null;
+      Pixel botPixel = null;
+      int height = pixels.length;
+
+      for (int row = 0; row< height/2;row++)
       {
-        for (int col = 0; col < width / 2; col++)
+        for (int col = 0; col < pixels[0].length; col++)
         {
-          leftPixel = pixels[row][col];
-          rightPixel = pixels[row][width-1-col];
-          rightPixel.setColor(leftPixel.getColor());
+          botPixel = pixels[row][col];
+          topPixel = pixels[height-1-row][col];
+          botPixel.setColor(topPixel.getColor());
         }
       }
     }
-*/
+
+    public void mirrorDiagonal()
+    {
+      Pixel[][] pixels=this.getPixels2D();
+      Pixel topPixel=null;
+      Pixel botPixel=null;
+      for(int row=0; row<pixels[0].length;row++)
+      {
+        for(int col=row;col<pixels.length;col++)
+        {
+            topPixel=pixels[row][col];
+            botPixel=pixels[col][row];
+            botPixel.setColor(topPixel.getColor());
+        }
+
+      }
+    }
 
 
 
