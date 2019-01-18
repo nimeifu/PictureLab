@@ -42,6 +42,11 @@ public class PictureTester
     beach.explore();
   }
 
+  public static void testCopy()
+  {
+
+
+  }
   public static void testzeroGreen()
   {
     Picture beach = new Picture("water.jpg");
@@ -178,7 +183,7 @@ public class PictureTester
     //testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
-    //testCopy();
+    testCopy();
     //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
@@ -189,4 +194,6 @@ public class PictureTester
     //testGetAverageForColumn(0);
     //testfixUnderwater();
   }
+
+
 }
